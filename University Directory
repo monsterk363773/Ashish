@@ -259,7 +259,7 @@
   <div class="container">
     <div class="hero">
       <h1>Student Search Portal</h1>
-      <p>Search and filter student records with a modern college-style dashboard</p>
+      <p>ENTER STUDENT NAME TO ACCESS STUDENT DETAIL OR FILTER</p>
     </div>
 
     <div class="panel">
@@ -284,6 +284,7 @@
           <label for="courseFilter">Course</label>
           <select id="courseFilter">
             <option value="">All Courses</option>
+            <option value="BS-MS">BS-MS</option>
             <option value="B.Tech">B.Tech</option>
             <option value="BCA">BCA</option>
             <option value="BBA">BBA</option>
@@ -295,6 +296,7 @@
           <label for="cityFilter">City</label>
           <select id="cityFilter">
             <option value="">All Cities</option>
+            <option value="Ghazipur">Ghazipur</option>
             <option value="Kanpur">Kanpur</option>
             <option value="Lucknow">Lucknow</option>
             <option value="Patna">Patna</option>
@@ -327,17 +329,17 @@
         name: "Ashish Kushwaha",
         age: 19,
         classYear: "1st Year",
-        course: "B.Tech",
-        city: "Kanpur",
+        course: "BS-MS",
+        city: "Ghazipur",
         department: "Computer Science"
       },
       {
         name: "Manya Lath",
         age: 18,
         classYear: "1st Year",
-        course: "BBA",
+        course: "BS-MS",
         city: "Patna",
-        department: "Management"
+        department: "Computer Science"
       },
       {
         name: "Rahul Verma",
@@ -412,7 +414,7 @@
     function showInitialMessage() {
       result.innerHTML = `
         <div class="empty-state">
-          Search ya filter use karke student details dekhiye.
+          ENTER STUDENT NAME TO ACCESS STUDENT DETAIL.
         </div>
       `;
       studentCount.textContent = "Total: 0";
@@ -477,5 +479,43 @@
 
     showInitialMessage();
   </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
